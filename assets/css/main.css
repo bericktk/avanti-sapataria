@@ -2474,6 +2474,7 @@ input, select, textarea {
 			flex-direction: row;
 			padding: 0 1.5em 1em 0;
 			justify-content: space-between;
+			width: 100%;
 		}
 
 
@@ -2481,14 +2482,13 @@ input, select, textarea {
 			margin: 0 0 3em 0;
 			width: 100%;
 			position: relative;
-			width: 100%;
 			cursor: none;
 			display: inline-block; /* Para que o container envolva a imagem */
     		overflow: hidden; /* Para evitar que a lente escape */
 		}
 
 			.produto.main img {
-				width: 80%;
+				width: 100%;
 				transition: transform 0.2s ease-in-out;
 			}
 
@@ -2512,11 +2512,27 @@ input, select, textarea {
 				transform: translate(-50%, -50%); /* Centraliza a lente no cursor */
 			}
 
+			.botoes-comprar {
+				display: flex;
+				gap: 1em;
+			}
+
 			@media screen and (max-width: 736px) {
 
 				.produto.main {
 					margin: 0 0 2em 0;
 				}
+
+				.inner.produto {
+					flex-direction: column;
+					padding: 0 0 1em 0;
+				}
+
+				.botoes-comprar {
+				display: flex;
+				flex-direction: column;
+				gap: 1em;
+			}
 
 			}
 
@@ -2570,6 +2586,19 @@ input, select, textarea {
 				font-weight: 300;
 				margin: 0 0 0.5em 0;
 			}
+
+			.tamanho {
+				margin: 0 0 0.5em 0;
+			}
+
+			.historia {
+				font-size: 0.95em; 
+				color: #4B3621; 
+				line-height: 1.6; 
+				text-align: justify; 
+				margin: 20px 0;;
+			}
+			
 		/* Modal do Carrossel */
         .modal {
             display: none;
@@ -2608,7 +2637,7 @@ input, select, textarea {
             color: white;
             font-size: 30px;
             cursor: pointer;
-            z-index: 1010;
+            z-index: 10000;
         }
 
         .swiper-button-next, .swiper-button-prev {
@@ -3195,6 +3224,10 @@ input, select, textarea {
 							opacity: 0;
 						}
 
+						.abrir-menu {
+							display: inline-block; /* ou flex, depende do layout */
+						}
+
 		@media screen and (max-width: 736px) {
 
 			#header {
@@ -3401,13 +3434,13 @@ input, select, textarea {
 /* Main */
 
 	#main {
-		padding: 0em 0 6em 0 ;
+		padding: 0em 0 3em 0 ;
 	}
 
 		@media screen and (max-width: 736px) {
 
 			#main {
-				padding: 0em 0 4em 0 ;
+				padding: 0em 0 1em 0 ;
 			}
 
 		}

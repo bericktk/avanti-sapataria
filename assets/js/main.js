@@ -220,40 +220,48 @@ function atualizarSelecao() {
     });
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const img = document.getElementById('abrir-modal');
     const lente = document.getElementById('zoom-lente');
-    
+    const modal = document.querySelector('.modal');
+    const closeBtn = document.querySelector('.close-btn');
+    const menuBtn = document.querySelector('.abrir-menu');
+
     // Configurações do zoom
     const zoomLevel = 2;
     lente.style.backgroundSize = `${img.width * zoomLevel}px ${img.height * zoomLevel}px`;
-    
+
     img.addEventListener('mousemove', function(e) {
-        // Mostra a lente
         lente.style.opacity = '1';
-        
-        // Posição do mouse relativa à imagem
         const rect = img.getBoundingClientRect();
         let x = e.clientX - rect.left;
         let y = e.clientY - rect.top;
-        
-        // Garante que a lente não saia dos limites
         x = Math.max(lente.offsetWidth/2, Math.min(x, img.width - lente.offsetWidth/2));
         y = Math.max(lente.offsetHeight/2, Math.min(y, img.height - lente.offsetHeight/2));
-        
-        // Posiciona a lente
         lente.style.left = x + 'px';
         lente.style.top = y + 'px';
-        
-        // Posição do background (zoom)
         const bgX = (x / img.width) * (img.width * zoomLevel - lente.offsetWidth);
         const bgY = (y / img.height) * (img.height * zoomLevel - lente.offsetHeight);
-        
         lente.style.backgroundImage = `url('${img.src}')`;
         lente.style.backgroundPosition = `-${bgX}px -${bgY}px`;
     });
-    
+
     img.addEventListener('mouseleave', function() {
         lente.style.opacity = '0';
     });
+
+    // Ao abrir o modal
+    img.addEventListener('click', function() {
+        modal.style.display = 'flex';
+        if (menuBtn) menuBtn.style.display = 'none'; // Esconde o botão do menu
+    });
+
+    // Ao fechar o modal
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            if (menuBtn) menuBtn.style.display = 'inline-block'; // Mostra de novo
+        });
+    }
 });
