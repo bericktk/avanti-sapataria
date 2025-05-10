@@ -265,3 +265,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+				const images = document.querySelectorAll('img');
+				const overlay = document.getElementById('overlay');
+				const overlayImg = document.getElementById('overlay-image');
+				const overlayText = document.getElementById('overlay-text');
+				const closeBtn = document.querySelector('.close');
+
+				images.forEach(img => {
+					img.addEventListener('click', () => {
+						overlayImg.src = img.src;
+						overlayText.textContent = img.alt || "Imagem ampliada";
+						overlay.style.display = 'flex';
+					});
+				});
+
+				closeBtn.addEventListener('click', () => {
+					overlay.style.display = 'none';
+				});
+
+				overlay.addEventListener('click', (e) => {
+					if (e.target === overlay) overlay.style.display = 'none';
+				});
+			});
