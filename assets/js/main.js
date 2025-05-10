@@ -183,3 +183,77 @@
 			});
 
 })(jQuery);
+
+
+const estrelas = document.querySelectorAll('#avaliacaoEstrelas span');
+let notaSelecionada = 0;
+
+estrelas.forEach((estrela, index) => {
+    estrela.addEventListener('mouseover', () => {
+        limparHover();
+        // Marca todas as estrelas até o índice atual
+        for (let i = 0; i <= index; i++) {
+            estrelas[i].classList.add('hover');
+        }
+    });
+
+    estrela.addEventListener('mouseout', limparHover);
+
+    estrela.addEventListener('click', () => {
+        notaSelecionada = parseInt(estrela.getAttribute('data-valor'));
+        atualizarSelecao();
+        console.log("Nota escolhida:", notaSelecionada);
+    });
+});
+
+function limparHover() {
+    estrelas.forEach(e => e.classList.remove('hover'));
+}
+
+function atualizarSelecao() {
+    estrelas.forEach(e => e.classList.remove('selecionada'));
+    estrelas.forEach(estrela => {
+        const valor = parseInt(estrela.getAttribute('data-valor'));
+        if (valor <= notaSelecionada) {
+            estrela.classList.add('selecionada');
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const img = document.getElementById('abrir-modal');
+    const lente = document.getElementById('zoom-lente');
+    
+    // Configurações do zoom
+    const zoomLevel = 2;
+    lente.style.backgroundSize = `${img.width * zoomLevel}px ${img.height * zoomLevel}px`;
+    
+    img.addEventListener('mousemove', function(e) {
+        // Mostra a lente
+        lente.style.opacity = '1';
+        
+        // Posição do mouse relativa à imagem
+        const rect = img.getBoundingClientRect();
+        let x = e.clientX - rect.left;
+        let y = e.clientY - rect.top;
+        
+        // Garante que a lente não saia dos limites
+        x = Math.max(lente.offsetWidth/2, Math.min(x, img.width - lente.offsetWidth/2));
+        y = Math.max(lente.offsetHeight/2, Math.min(y, img.height - lente.offsetHeight/2));
+        
+        // Posiciona a lente
+        lente.style.left = x + 'px';
+        lente.style.top = y + 'px';
+        
+        // Posição do background (zoom)
+        const bgX = (x / img.width) * (img.width * zoomLevel - lente.offsetWidth);
+        const bgY = (y / img.height) * (img.height * zoomLevel - lente.offsetHeight);
+        
+        lente.style.backgroundImage = `url('${img.src}')`;
+        lente.style.backgroundPosition = `-${bgX}px -${bgY}px`;
+    });
+    
+    img.addEventListener('mouseleave', function() {
+        lente.style.opacity = '0';
+    });
+});

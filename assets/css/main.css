@@ -2370,6 +2370,157 @@ input, select, textarea {
 
 			}
 
+		.inner.produto {
+			display: flex;
+			flex-direction: row;
+			padding: 0 1.5em 1em 0;
+			justify-content: space-between;
+		}
+
+
+		.produto.main {
+			margin: 0 0 3em 0;
+			width: 100%;
+			position: relative;
+			width: 100%;
+			cursor: none;
+			display: inline-block; /* Para que o container envolva a imagem */
+    		overflow: hidden; /* Para evitar que a lente escape */
+		}
+
+			.produto.main img {
+				width: 80%;
+				transition: transform 0.2s ease-in-out;
+			}
+
+			#abrir-modal {
+				width: 100%;
+				display: block;
+				cursor: zoom-in; /* Melhora a UX */
+			}
+
+			.zoom-lente {
+				width: 150px;
+				height: 150px;
+				border: 2px solid #fff;
+				border-radius: 50%;
+				position: absolute;
+				background-repeat: no-repeat;
+				pointer-events: none;
+				opacity: 0;
+				transition: opacity 0.2s;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+				transform: translate(-50%, -50%); /* Centraliza a lente no cursor */
+			}
+
+			@media screen and (max-width: 736px) {
+
+				.produto.main {
+					margin: 0 0 2em 0;
+				}
+
+			}
+
+			.produto {
+				display: flex;
+				flex-direction: column;
+				width: 100%;
+			}
+
+			.produto h1 {
+				font-size: 1.75em;
+				font-weight: 900;
+				margin: 0 0 0.25em 0;
+			}
+
+			.produto.avaliacao {
+				display: flex;
+				flex-direction: column;
+				margin-top: 0;
+			}
+
+			.estrelas-clique {
+				display: inline-flex; /* Usando flex para melhor alinhamento */
+				font-size: 2rem;
+				user-select: none;
+			}
+
+			.estrelas-clique span {
+				color: #ccc;
+				cursor: pointer;
+				transition: color 0.2s;
+				margin-right: 2px; /* Espaçamento entre estrelas */
+			}
+
+			.estrelas-clique span.hover {
+				color: gold;
+			}
+
+			.estrelas-clique span.selecionada {
+				color: gold;
+			}
+
+			.preco .valor {
+				font-size: 1.5em;
+				font-weight: 900;
+				margin: 0 0 0.1em 0;
+			}
+
+			.preco .extra {
+				font-size: 0.95em;
+				font-weight: 300;
+				margin: 0 0 0.5em 0;
+			}
+		/* Modal do Carrossel */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 80vh;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 1010;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: white !important;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: white !important;
+        }
+
+
 /* Table */
 
 	.table-wrapper {
