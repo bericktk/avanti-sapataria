@@ -2287,7 +2287,6 @@ input, select, textarea {
 		border-radius: 100%;
 	}
 
-/* Box */
 
 	.box {
 		border-radius: 4px;
@@ -2308,67 +2307,167 @@ input, select, textarea {
 			padding: 0;
 		}
 
-/* Image */
+.image {
+    border-radius: 4px;
+    border: 0;
+    display: inline-block;
+    position: relative;
+    max-width: 80%;
+    margin-bottom: 2em;
+}
 
-	.image {
-		border-radius: 4px;
-		border: 0;
-		display: inline-block;
-		position: relative;
-	}
+.image img {
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+}
 
-		.image img {
-			border-radius: 4px;
-			display: block;
-		}
+.image.left, .image.right {
+    float: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
 
-		.image.left, .image.right {
-			max-width: 40%;
-		}
+.image.left {
+    padding-right: 20px;  
+}
 
-			.image.left img, .image.right img {
-				width: 100%;
-			}
+.image.right {
+    padding-left: 20px;  
+}
 
-		.image.left {
-			float: left;
-			padding: 0 1.5em 1em 0;
-			top: 0.25em;
-		}
+#calçados .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
 
-		.image.right {
-			float: right;
-			padding: 0 0 1em 1.5em;
-			top: 0.25em;
-		}
+.content {
+    flex: 1;
+    padding-right: 20px;
+}
 
-		.image.fit {
-			display: block;
-			margin: 0 0 2em 0;
-			width: 100%;
-		}
+@media screen and (max-width: 768px) {
+    #calçados .inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-			.image.fit img {
-				width: 100%;
-			}
+    .image {
+        max-width: 100%;
+        margin-bottom: 1em;
+    }
 
-		.image.main {
-			display: block;
-			margin: 0 0 3em 0;
-			width: 100%;
-		}
+    .content {
+        padding-right: 0;
+    }
+}
 
-			.image.main img {
-				width: 100%;
-			}
+#banner .image {
+    border-radius: 4px;
+    border: 0;
+    display: inline-block;
+    position: relative;
+    max-width: 100%;  
+	width: 100%;
+    margin: 0 auto;  
+    margin-bottom: 2em;
+}
 
-			@media screen and (max-width: 736px) {
+#banner .image img {
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+}
 
-				.image.main {
-					margin: 0 0 2em 0;
-				}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+	gap: 0.9%;
+    justify-content: space-between;
+}
 
-			}
+.gallery .image {
+    width: 48%;          
+    margin-bottom: 2em;  
+}
+
+.gallery .image img {
+    width: 100%;        
+    height: auto;       
+    object-fit: contain;  
+    border-radius: 4px;   
+}
+
+
+.galleryuma .image {
+    border-radius: 4px;
+    border: 0;
+    display: inline-block;
+    position: relative;
+    width: 100%;  
+	max-width: 100%;
+    margin-bottom: 2em;
+    height: 100vh; 
+    object-fit: cover;  
+}
+
+.galleryuma .image img {
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    height: 100%;  
+    object-fit: cover;  
+}
+
+.duas {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2%;
+    margin-bottom: 2em;
+}
+
+.duas .image {
+    width: 49%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.duas .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ultimo {
+ 	display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2%;
+    margin-bottom: 2em;
+
+}
+
+@media screen and (max-width: 768px) {
+    .duas {
+        flex-direction: column;
+    }
+
+    .duas .image {
+        width: 100%;
+        aspect-ratio: auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .gallery .image {
+        width: 100%;
+    }
+}
 
 /* Table */
 
