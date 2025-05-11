@@ -223,7 +223,6 @@ function atualizarSelecao() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const img = document.getElementById('abrir-modal');
-    const lente = document.getElementById('zoom-lente');
     const modal = document.querySelector('.modal');
     const closeBtn = document.querySelector('.close-btn');
     const menuBtn = document.querySelector('.abrir-menu');
@@ -266,26 +265,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
+// Trocar a imagem principal ao clicar numa miniatura
+const miniaturas = document.querySelectorAll('.miniatura');
+const imagemPrincipal = document.getElementById('abrir-modal');
+
+miniaturas.forEach(miniatura => {
+miniatura.addEventListener('click', () => {
+	const novaSrc = miniatura.getAttribute('data-src');
+	imagemPrincipal.setAttribute('src', novaSrc);
+});
+});
+
+// Abrir overlay
 document.addEventListener('DOMContentLoaded', () => {
-				const images = document.querySelectorAll('img');
-				const overlay = document.getElementById('overlay');
-				const overlayImg = document.getElementById('overlay-image');
-				const overlayText = document.getElementById('overlay-text');
-				const closeBtn = document.querySelector('.close');
+	const images = document.querySelectorAll('img');
+	const overlay = document.getElementById('overlay');
+	const overlayImg = document.getElementById('overlay-image');
+	const overlayText = document.getElementById('overlay-text');
+	const closeBtn = document.querySelector('.close');
 
-				images.forEach(img => {
-					img.addEventListener('click', () => {
-						overlayImg.src = img.src;
-						overlayText.textContent = img.alt || "Imagem ampliada";
-						overlay.style.display = 'flex';
-					});
-				});
+	images.forEach(img => {
+		img.addEventListener('click', () => {
+			overlayImg.src = img.src;
+			overlayText.textContent = img.alt || "Imagem ampliada";
+			overlay.style.display = 'flex';
+		});
+	});
 
-				closeBtn.addEventListener('click', () => {
-					overlay.style.display = 'none';
-				});
+	closeBtn.addEventListener('click', () => {
+		overlay.style.display = 'none';
+	});
 
-				overlay.addEventListener('click', (e) => {
-					if (e.target === overlay) overlay.style.display = 'none';
-				});
-			});
+	overlay.addEventListener('click', (e) => {
+		if (e.target === overlay) overlay.style.display = 'none';
+	});
+});
