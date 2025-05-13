@@ -37,10 +37,10 @@ Este arquivo de documentação.
 
 ## Contribuição
 
-Adson
-Beatriz Castro
-Bruno Erick
-Isaac Dias
-Ramiro
+- Adson
+- Beatriz Castro
+- Bruno Erick
+- Isaac Dias
+- Ramiro
 
 ---
