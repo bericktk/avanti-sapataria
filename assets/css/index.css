@@ -1,0 +1,35 @@
+.carousel-control-next, .carousel-control-prev{
+    top: 50% !important;
+}
+
+.home-sobre{
+    padding-top: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.home-sobre img{
+    padding: 1em;
+    max-width: 100%;
+    max-height: auto;
+}
+
+.card-body button{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.card-body button a{
+    text-decoration: none;
+}
+
+.card-title{
+    font-size: 1.5em;
+    text-align: center !important;
+}
+
+.card-body{
+    text-align: justify;
+}
