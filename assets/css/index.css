@@ -1,3 +1,7 @@
+a{
+    text-decoration: none !important;
+}
+
 .carousel-control-next, .carousel-control-prev{
     top: 50% !important;
 }
