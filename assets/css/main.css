@@ -3029,6 +3029,7 @@ input, select, textarea {
 				text-align: center;
 				text-decoration: none;
 				z-index: 3;
+				padding-right: 4em;
 			}
 
 				.tiles article > a > :last-child {
