@@ -1,6 +1,6 @@
-# Avanti Sapataria
+# Artesãos do Sapato
 
-Este repositório contém o projeto **Avanti Sapataria**, desenvolvido com HTML e CSS. Abaixo está a explicação das principais pastas e arquivos do projeto.
+Este repositório contém o projeto **Artesãos do Sapato**, desenvolvido com HTML e CSS. Abaixo está a explicação das principais pastas e arquivos do projeto.
 
 ## Estrutura de Pastas
 
@@ -24,7 +24,7 @@ Contém recursos estáticos do projeto.
 
 
 ### index.html
-Página inicial do site da Sapataria Avanti.
+Página inicial do site da Artesãos do Sapato.
 
 ### README.md
 Este arquivo de documentação.
