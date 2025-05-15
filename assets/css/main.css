@@ -2723,6 +2723,27 @@ input, select, textarea {
             background: #4B3621 !important;
         }
 
+		  .whatsapp-btn {
+			display: inline-block;
+			background-color: #25D366; /* verde do WhatsApp */
+			color: white;
+			padding: 10px 20px;
+			font-size: 16px;
+			font-family: sans-serif;
+			border: none;
+			border-radius: 5px;
+			text-decoration: none;
+			transition: background-color 0.3s ease;
+		}
+
+		.whatsapp-btn:hover {
+			background-color: #1ebe5d;
+		}
+
+		.whatsapp-btn i {
+			margin-right: 8px;
+		}
+
 
 /* Table */
 
@@ -3524,7 +3545,7 @@ input, select, textarea {
 /* Footer */
 
 	#footer {
-		padding: 5em 0 6em 0 ;
+		padding: 3em 0 1em 0 ;
 		background-color: #f6f6f6;
 	}
 
